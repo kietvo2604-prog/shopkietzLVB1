@@ -1,4 +1,4 @@
-import logoImage from "@/assets/download (1).jpg";
+import logoImage from "@/assets/image_be39bed4.png";
 
 const AnimatedLogo = () => {
   return (
