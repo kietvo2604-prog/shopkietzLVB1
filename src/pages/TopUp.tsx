@@ -79,7 +79,7 @@ const TopUp = () => {
   const currentCard = cardTypes.find((c) => c.id === selectedCard)!;
 
   const sepayContent = transferCode || "NNQ000";
-  const sepayQr = useMemo(() => `https://qr.sepay.vn/img?acc=0365739178&bank=MB&amount=&des=${encodeURIComponent(sepayContent)}`, [sepayContent]);
+  const sepayQr = useMemo(() => `https://qr.sepay.vn/img?acc=0987672604&bank=MB&amount=&des=${encodeURIComponent(sepayContent)}`, [sepayContent]);
 
   useEffect(() => {
     supabase.from("shop_settings").select("value").eq("key", "charge_card_api").maybeSingle().then(({ data }) => setActiveApi(data?.value || "gachthefast"));
@@ -184,7 +184,7 @@ const TopUp = () => {
                       Tên chủ tài khoản: <span className="text-primary">NGUYỄN NGỌC QUÝ</span>
                     </p>
                     <p className="font-bold text-foreground">
-                      Số tài khoản: <span className="text-primary">0365739178</span>
+                      Số tài khoản: <span className="text-primary">0987672604</span>
                     </p>
                   </div>
                 </div>
