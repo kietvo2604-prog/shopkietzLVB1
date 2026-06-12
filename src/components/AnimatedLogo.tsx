@@ -18,7 +18,7 @@ const AnimatedLogo = () => {
         {/* Logo chính - ĐÃ PHÓNG TO */}
         <img 
           src={logoImage}
-          alt="ZonoShop Logo"
+          alt="ShopkietZ Logo"
           className="relative h-16 md:h-24 lg:h-32 w-auto object-contain transition-all duration-300 hover:scale-105"
           style={{
             filter: "drop-shadow(0 0 8px #8b5cf6) drop-shadow(0 0 15px #a78bfa)",

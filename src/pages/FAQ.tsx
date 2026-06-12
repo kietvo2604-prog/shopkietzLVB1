@@ -51,7 +51,7 @@ const FAQ = () => {
             CÂU HỎI THƯỜNG GẶP
           </h1>
           <p className="text-muted-foreground text-sm">
-            Giải đáp các thắc mắc phổ biến khi mua hàng tại ZONOshop
+            Giải đáp các thắc mắc phổ biến khi mua hàng tại ShopkietZ
           </p>
         </div>
 
