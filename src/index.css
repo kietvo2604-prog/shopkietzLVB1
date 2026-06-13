@@ -208,216 +208,24 @@
     background: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent)), hsl(var(--primary)));
   }
   .galaxy-button {
-    background: radial-gradient(circle at 18% 20%, hsl(120 100% 85% / 0.3), transparent 18%), linear-gradient(100deg, hsl(120 65% 40%), hsl(120 60% 45%) 48%, hsl(120 55% 50%) 100%);
-    box-shadow: 0 0 12px hsl(var(--accent) / 0.5), 0 0 28px hsl(var(--secondary) / 0.35), inset 0 0 12px hsl(120 100% 85% / 0.12);
+    background: radial-gradient(circle at 18% 20%, hsl(120 100% 85% / 0.35), transparent 18%), linear-gradient(100deg, hsl(120 70% 40%), hsl(120 65% 45%) 48%, hsl(120 60% 50%) 100%);
+    box-shadow: 0 0 16px hsl(var(--accent) / 0.55), 0 0 32px hsl(var(--secondary) / 0.4), inset 0 0 14px hsl(120 100% 85% / 0.15);
+    border: none;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+  }
+  .galaxy-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 24px hsl(var(--accent) / 0.7), 0 0 40px hsl(var(--secondary) / 0.5), inset 0 0 18px hsl(120 100% 85% / 0.2);
+  }
+  .galaxy-button:active {
+    transform: translateY(1px);
   }
   .neon-purple {
     box-shadow: 0 0 12px hsl(var(--accent) / 0.45), inset 0 0 10px hsl(var(--accent) / 0.1);
   }
 }
-
-/* ========== BUTTON ENHANCEMENTS - NỔI BẬT HƠN ========== */
-
-/* Button cơ bản */
-button, .btn, [role="button"], a.btn {
-  @apply relative overflow-hidden transition-all duration-300 ease-out;
-  transform: translateY(0);
-}
-
-button:hover, .btn:hover, [role="button"]:hover, a.btn:hover {
-  transform: translateY(-2px);
-}
-
-button:active, .btn:active, [role="button"]:active, a.btn:active {
-  transform: translateY(1px);
-}
-
-/* Primary Button nổi bật */
-.btn-primary, button[type="submit"], .bg-primary {
-  background: linear-gradient(135deg, hsl(120 70% 40%), hsl(120 60% 35%));
-  box-shadow: 0 4px 15px 0 hsl(120 70% 35% / 0.4);
-  border: none;
-  font-weight: 600;
-  letter-spacing: 0.025em;
-}
-
-.btn-primary:hover, button[type="submit"]:hover, .bg-primary:hover {
-  background: linear-gradient(135deg, hsl(120 75% 45%), hsl(120 65% 40%));
-  box-shadow: 0 6px 20px 0 hsl(120 70% 40% / 0.5);
-  filter: brightness(1.05);
-}
-
-/* Secondary Button */
-.btn-secondary {
-  background: linear-gradient(135deg, hsl(120 40% 85%), hsl(120 35% 80%));
-  color: hsl(120 70% 25%);
-  box-shadow: 0 2px 8px 0 hsl(0 0% 0% / 0.1);
-  font-weight: 600;
-}
-
-.btn-secondary:hover {
-  background: linear-gradient(135deg, hsl(120 45% 88%), hsl(120 40% 83%));
-  box-shadow: 0 4px 12px 0 hsl(0 0% 0% / 0.15);
-}
-
-/* Accent Button - Nổi bật nhất */
-.btn-accent {
-  background: linear-gradient(135deg, hsl(120 65% 42%), hsl(120 55% 38%));
-  box-shadow: 0 4px 18px 0 hsl(120 65% 42% / 0.5);
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.btn-accent:hover {
-  background: linear-gradient(135deg, hsl(120 70% 48%), hsl(120 60% 42%));
-  box-shadow: 0 8px 25px 0 hsl(120 65% 45% / 0.6);
-  transform: translateY(-3px);
-}
-
-/* Outline Button */
-.btn-outline {
-  background: transparent;
-  border: 2px solid hsl(120 70% 40%);
-  color: hsl(120 70% 40%);
-  font-weight: 600;
-}
-
-.btn-outline:hover {
-  background: hsl(120 70% 40%);
-  color: white;
-  box-shadow: 0 4px 12px 0 hsl(120 70% 40% / 0.3);
-}
-
-/* Destructive Button */
-.btn-destructive {
-  background: linear-gradient(135deg, hsl(0 85% 52%), hsl(0 75% 45%));
-  box-shadow: 0 4px 12px 0 hsl(0 85% 52% / 0.4);
-  font-weight: 600;
-}
-
-.btn-destructive:hover {
-  background: linear-gradient(135deg, hsl(0 90% 58%), hsl(0 80% 50%));
-  box-shadow: 0 6px 16px 0 hsl(0 85% 55% / 0.5);
-}
-
-/* Ghost Button */
-.btn-ghost {
-  background: transparent;
-  color: hsl(120 60% 35%);
-  font-weight: 500;
-}
-
-.btn-ghost:hover {
-  background: hsl(120 40% 92%);
-  transform: translateY(-2px);
-}
-
-/* Button với hiệu ứng shine */
-.btn-shine {
-  position: relative;
-  overflow: hidden;
-}
-
-.btn-shine::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -60%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(115deg, transparent 30%, hsl(0 0% 100% / 0.3), transparent 70%);
-  transform: rotate(25deg);
-  transition: all 0.5s ease;
-  opacity: 0;
-}
-
-.btn-shine:hover::after {
-  left: 100%;
-  opacity: 1;
-  transition: all 0.7s ease;
-}
-
-/* Button glow effect */
-.btn-glow {
-  animation: btn-pulse 2s ease-in-out infinite;
-}
-
-@keyframes btn-pulse {
-  0%, 100% {
-    box-shadow: 0 0 5px hsl(120 70% 40% / 0.5), 0 4px 12px hsl(120 70% 35% / 0.3);
-  }
-  50% {
-    box-shadow: 0 0 20px hsl(120 70% 45% / 0.7), 0 6px 18px hsl(120 70% 40% / 0.4);
-  }
-}
-
-/* Large Button */
-.btn-lg {
-  @apply text-lg py-3 px-6 rounded-lg;
-  font-weight: 700;
-}
-
-/* Small Button */
-.btn-sm {
-  @apply text-sm py-1.5 px-3 rounded-md;
-  font-weight: 500;
-}
-
-/* Disabled Button */
-button:disabled, .btn:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transform: none !important;
-  filter: grayscale(0.1);
-}
-
-/* Icon Button */
-.btn-icon {
-  @apply inline-flex items-center justify-center gap-2;
-}
-
-.btn-icon svg {
-  transition: transform 0.2s ease;
-}
-
-.btn-icon:hover svg {
-  transform: scale(1.1);
-}
-
-/* Loading Button State */
-.btn-loading {
-  position: relative;
-  color: transparent !important;
-}
-
-.btn-loading::before {
-  content: '';
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 20px;
-  height: 20px;
-  margin-left: -10px;
-  margin-top: -10px;
-  border: 2px solid white;
-  border-top-color: transparent;
-  border-radius: 50%;
-  animation: btn-spin 0.8s linear infinite;
-}
-
-@keyframes btn-spin {
-  to { transform: rotate(360deg); }
-}
-
-/* Button Focus State */
-button:focus-visible, .btn:focus-visible {
-  outline: none;
-  ring: 2px solid hsl(120 70% 45%);
-  ring-offset: 2px;
-}
-
-/* ========== END BUTTON ENHANCEMENTS ========== */
 
 @keyframes logo-bounce {
   0% { transform: scale(1); }
