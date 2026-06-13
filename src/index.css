@@ -18,40 +18,40 @@
     --popover: 120 20% 100%;
     --popover-foreground: 120 40% 12%;
 
-    --primary: 120 70% 35%;
-    --primary-foreground: 120 20% 98%;
+    --primary: 120 70% 38%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 120 40% 85%;
+    --secondary: 120 50% 85%;
     --secondary-foreground: 120 70% 25%;
 
     --muted: 120 15% 94%;
     --muted-foreground: 120 20% 40%;
 
     --accent: 120 60% 45%;
-    --accent-foreground: 120 20% 98%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 85% 52%;
     --destructive-foreground: 0 0% 100%;
 
     --border: 120 20% 85%;
     --input: 120 20% 85%;
-    --ring: 120 70% 35%;
+    --ring: 120 70% 38%;
 
     --radius: 0.5rem;
 
-    --neon-glow: 120 70% 35%;
+    --neon-glow: 120 70% 42%;
     --neon-cyan: 120 60% 40%;
     --neon-orange: 30 100% 50%;
     --neon-red: 0 85% 52%;
 
     --sidebar-background: 120 20% 98%;
     --sidebar-foreground: 120 40% 12%;
-    --sidebar-primary: 120 70% 35%;
-    --sidebar-primary-foreground: 120 20% 98%;
+    --sidebar-primary: 120 70% 38%;
+    --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 120 25% 90%;
     --sidebar-accent-foreground: 120 40% 12%;
     --sidebar-border: 120 20% 85%;
-    --sidebar-ring: 120 70% 35%;
+    --sidebar-ring: 120 70% 38%;
     --chart-1: 120 70% 45%;
     --chart-2: 120 60% 55%;
     --chart-3: 120 50% 65%;
@@ -84,7 +84,7 @@
     --popover-foreground: 120 40% 12%;
 
     --primary: 120 70% 40%;
-    --primary-foreground: 120 20% 98%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 120 50% 88%;
     --secondary-foreground: 120 70% 30%;
@@ -93,7 +93,7 @@
     --muted-foreground: 120 20% 40%;
 
     --accent: 120 60% 45%;
-    --accent-foreground: 120 20% 98%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 85% 55%;
     --destructive-foreground: 0 0% 100%;
@@ -110,7 +110,7 @@
     --sidebar-background: 120 20% 100%;
     --sidebar-foreground: 120 40% 12%;
     --sidebar-primary: 120 70% 40%;
-    --sidebar-primary-foreground: 120 20% 98%;
+    --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 120 25% 92%;
     --sidebar-accent-foreground: 120 40% 12%;
     --sidebar-border: 120 20% 88%;
@@ -128,7 +128,7 @@
     --popover-foreground: 120 20% 92%;
 
     --primary: 120 65% 45%;
-    --primary-foreground: 120 20% 98%;
+    --primary-foreground: 0 0% 100%;
 
     --secondary: 120 35% 20%;
     --secondary-foreground: 120 20% 92%;
@@ -137,7 +137,7 @@
     --muted-foreground: 120 15% 70%;
 
     --accent: 120 55% 42%;
-    --accent-foreground: 120 20% 98%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 350 92% 57%;
     --destructive-foreground: 0 85% 97%;
@@ -159,7 +159,7 @@
     --sidebar: 120 25% 12%;
     --sidebar-foreground: 120 20% 92%;
     --sidebar-primary: 120 65% 45%;
-    --sidebar-primary-foreground: 120 20% 98%;
+    --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 120 35% 20%;
     --sidebar-accent-foreground: 120 20% 92%;
     --sidebar-border: 120 30% 20%;
@@ -190,16 +190,16 @@
     font-family: 'Orbitron', sans-serif;
   }
   .neon-text {
-    text-shadow: 0 0 10px hsl(var(--neon-glow) / 0.5), 0 0 20px hsl(var(--neon-glow) / 0.25);
+    text-shadow: 0 0 10px hsl(var(--neon-glow) / 0.6), 0 0 30px hsl(var(--neon-glow) / 0.3);
   }
   .neon-cyan-text {
-    text-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.5), 0 0 20px hsl(var(--neon-cyan) / 0.25);
+    text-shadow: 0 0 10px hsl(var(--neon-cyan) / 0.6), 0 0 30px hsl(var(--neon-cyan) / 0.3);
   }
   .neon-border {
-    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.6), 0 0 12px hsl(var(--neon-glow) / 0.35), inset 0 0 10px hsl(var(--neon-glow) / 0.08);
+    box-shadow: 0 0 0 1px hsl(var(--primary) / 0.8), 0 0 16px hsl(var(--neon-glow) / 0.45), inset 0 0 14px hsl(var(--neon-glow) / 0.12);
   }
   .neon-card {
-    box-shadow: 0 0 14px hsl(var(--neon-glow) / 0.15), 0 0 28px hsl(var(--secondary) / 0.12), 0 4px 20px hsl(120 20% 0% / 0.4);
+    box-shadow: 0 0 18px hsl(var(--neon-glow) / 0.18), 0 0 34px hsl(var(--secondary) / 0.14), 0 4px 20px hsl(120 20% 0% / 0.6);
   }
   .gradient-primary {
     background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)) 52%, hsl(var(--accent)));
@@ -208,22 +208,19 @@
     background: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent)), hsl(var(--primary)));
   }
   .galaxy-button {
-    background: radial-gradient(circle at 18% 20%, hsl(120 100% 85% / 0.35), transparent 18%), linear-gradient(100deg, hsl(120 70% 40%), hsl(120 65% 45%) 48%, hsl(120 60% 50%) 100%);
-    box-shadow: 0 0 16px hsl(var(--accent) / 0.55), 0 0 32px hsl(var(--secondary) / 0.4), inset 0 0 14px hsl(120 100% 85% / 0.15);
-    border: none;
-    color: white;
-    font-weight: 600;
+    background: radial-gradient(circle at 18% 20%, hsl(120 100% 85% / 0.35), transparent 18%), linear-gradient(100deg, hsl(120 65% 40%), hsl(120 60% 45%) 48%, hsl(120 55% 50%) 100%);
+    box-shadow: 0 0 16px hsl(120 70% 42% / 0.65), 0 0 34px hsl(120 50% 35% / 0.45), inset 0 0 16px hsl(120 100% 85% / 0.16);
     transition: all 0.3s ease;
   }
   .galaxy-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 24px hsl(var(--accent) / 0.7), 0 0 40px hsl(var(--secondary) / 0.5), inset 0 0 18px hsl(120 100% 85% / 0.2);
+    box-shadow: 0 0 24px hsl(120 70% 45% / 0.8), 0 0 40px hsl(120 60% 40% / 0.6), inset 0 0 20px hsl(120 100% 85% / 0.2);
   }
   .galaxy-button:active {
     transform: translateY(1px);
   }
   .neon-purple {
-    box-shadow: 0 0 12px hsl(var(--accent) / 0.45), inset 0 0 10px hsl(var(--accent) / 0.1);
+    box-shadow: 0 0 16px hsl(var(--accent) / 0.55), inset 0 0 14px hsl(var(--accent) / 0.12);
   }
 }
 
@@ -250,7 +247,7 @@
   height: 5px;
   border-radius: 50%;
   background: hsl(var(--primary));
-  box-shadow: 0 0 6px hsl(var(--primary)), 0 0 12px hsl(var(--neon-glow) / 0.4);
+  box-shadow: 0 0 6px hsl(var(--primary)), 0 0 12px hsl(var(--neon-glow) / 0.5);
   pointer-events: none;
   z-index: 9999;
   animation: click-sparkle-pop 0.6s ease-out forwards;
