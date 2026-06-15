@@ -18,7 +18,7 @@
     --popover: 0 0% 100%;
     --popover-foreground: 150 30% 12%;
 
-    --primary: 142 70% 38%;
+    --primary: 142 70% 38%
     --primary-foreground: 0 0% 100%;
 
     --secondary: 142 50% 92%;
@@ -84,11 +84,11 @@
     --popover-foreground: 260 25% 10%;
 
     /* Đổi sang Xanh lá Basic sáng */
-    --primary: 142 70% 45%; 
+    --primary: 145 90% 38% 
     --primary-foreground: 0 0% 100%;
 
     /* Màu chuyển sắc nhẹ (Xanh lá ngả đậm hơn tí) */
-    --secondary: 145 65% 36%; 
+    --secondary: 185 90% 38% 
     --secondary-foreground: 0 0% 100%;
 
     --muted: 260 15% 92%;
