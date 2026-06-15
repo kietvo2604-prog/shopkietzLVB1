@@ -6,7 +6,7 @@ const DEFAULT_TITLE = "SHOPKIETZ";
 
 const items = [
   { label: "Tham Gia Nhóm Zalo Thông Báo Của Shop (Có Mã Giảm Giá)", href: "https://zalo.me/0987672604" },
-  { label: "Quản trị viên Facebook (Hỗ trợ) - Renji Kage", href: "https://facebook.com" },
+  { label: "Quản trị viên Facebook (Hỗ trợ) -  KietZ", href: "https://facebook.com" },
   { label: "Thẻ Cào (Thẻ)", href: "/nap-the" },
   { label: "Nạp Tiền Ngân Hàng (Chuyển Khoản)", href: "/nap-ngan-hang" },
 ];
