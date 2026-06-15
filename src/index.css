@@ -8,247 +8,109 @@
 @tailwind utilities;
 
 @layer base {
+  /* --- MẶC ĐỊNH LÀ DARK MODE --- */
   :root {
-    --background: 0 0% 100%;
-    --foreground: 150 30% 12%;
-
-    --card: 0 0% 100%;
-    --card-foreground: 150 30% 12%;
-
-    --popover: 0 0% 100%;
-    --popover-foreground: 150 30% 12%;
-
-    --primary: 142 70% 38%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 142 50% 92%;
-    --secondary-foreground: 142 76% 25%;
-
-    --muted: 150 20% 96%;
-    --muted-foreground: 150 10% 35%;
-
-    --accent: 48 100% 50%;
-    --accent-foreground: 30 80% 18%;
-
-    --destructive: 0 85% 52%;
-    --destructive-foreground: 0 0% 100%;
-
-    --border: 150 15% 88%;
-    --input: 150 15% 88%;
-    --ring: 142 70% 38%;
-
+    --background: 240 6% 8%;
+    --foreground: 0 0% 98%;
+    --card: 240 5% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 5% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 185 100% 50%;
+    --primary-foreground: 240 10% 6%;
+    --secondary: 273 95% 58%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 5% 14%;
+    --muted-foreground: 220 14% 78%;
+    --accent: 292 90% 56%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 350 92% 57%;
+    --destructive-foreground: 0 85% 97%;
+    --border: 220 55% 32%;
+    --input: 240 5% 18%;
+    --ring: 185 100% 50%;
+    
     --radius: 0.5rem;
+    --tracking-normal: 0em;
+    --spacing: 0.25rem;
 
-    --neon-glow: 142 76% 42%;
-    --neon-cyan: 185 90% 38%;
-    --neon-orange: 30 100% 50%;
-    --neon-red: 0 85% 52%;
-
-    --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 220 25% 12%;
-    --sidebar-primary: 142 76% 42%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 16% 90%;
-    --sidebar-accent-foreground: 220 25% 12%;
-    --sidebar-border: 210 16% 84%;
-    --sidebar-ring: 142 76% 42%;
-    --chart-1: 255 91% 76%;
-    --chart-2: 270 95% 75%;
-    --chart-3: 234 89% 73%;
-    --chart-4: 258 89% 66%;
+    --neon-glow: 185 100% 50%;
+    --neon-cyan: 185 100% 50%;
+    --neon-orange: 292 90% 56%;
+    --neon-red: 350 92% 57%;
+    
+    --chart-1: 252 94% 85%;
+    --chart-2: 269 97% 85%;
+    --chart-3: 229 93% 81%;
+    --chart-4: 255 91% 76%;
     --chart-5: 240 3% 46%;
-    --sidebar: 0 0% 98%;
+    
+    --sidebar: 240 3% 15%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 255 91% 76%;
+    --sidebar-primary-foreground: 261 72% 22%;
+    --sidebar-accent: 270 95% 75%;
+    --sidebar-accent-foreground: 273 86% 20%;
+    --sidebar-border: 240 5% 33%;
+    --sidebar-ring: 255 91% 76%;
+    
+    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
+    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
+    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
+    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
+    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
+    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
+    
     --font-sans: 'Montserrat', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
     --font-serif: 'Cormorant Garamond', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
     --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
-    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
-    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
-    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
-    --tracking-normal: 0em;
-    --spacing: 0.25rem;
   }
 
-   .light {
-
+  /* --- CHUYỂN SANG LIGHT MODE KHI CÓ CLASS .light --- */
+  .light {
     --background: 210 20% 95%;
-
     --foreground: 220 25% 12%;
 
-
-
     --card: 0 0% 100%;
-
     --card-foreground: 220 25% 12%;
 
-
-
     --popover: 0 0% 100%;
-
     --popover-foreground: 220 25% 12%;
 
-
-
     --primary: 145 90% 38%;
-
     --primary-foreground: 0 0% 100%;
 
-
-
     --secondary: 185 90% 38%;
-
     --secondary-foreground: 0 0% 100%;
 
-
-
     --muted: 210 15% 88%;
-
     --muted-foreground: 220 15% 35%;
 
-
-
     --accent: 30 100% 50%;
-
     --accent-foreground: 0 0% 100%;
-
-
 
     --destructive: 0 85% 50%;
-
     --destructive-foreground: 0 0% 100%;
 
-
-
     --border: 210 15% 82%;
-
     --input: 210 15% 82%;
-
     --ring: 145 90% 38%;
 
-
-
     --neon-glow: 145 90% 38%;
-
     --neon-cyan: 185 90% 38%;
-
     --neon-orange: 30 100% 50%;
-
     --neon-red: 0 90% 50%;
 
-
-
     --sidebar-background: 0 0% 100%;
-
     --sidebar-foreground: 220 25% 12%;
-
     --sidebar-primary: 145 90% 38%;
-
     --sidebar-primary-foreground: 0 0% 100%;
-
     --sidebar-accent: 210 15% 88%;
-
     --sidebar-accent-foreground: 220 25% 12%;
-
     --sidebar-border: 210 15% 82%;
-
     --sidebar-ring: 145 90% 38%;
-
-  }
-
-  .dark {
-
-    --background: 240 6% 8%;
-
-    --foreground: 0 0% 98%;
-
-    --card: 240 5% 10%;
-
-    --card-foreground: 0 0% 98%;
-
-    --popover: 240 5% 12%;
-
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 185 100% 50%;
-
-    --primary-foreground: 240 10% 6%;
-
-    --secondary: 273 95% 58%;
-
-    --secondary-foreground: 0 0% 98%;
-
-    --muted: 240 5% 14%;
-
-    --muted-foreground: 220 14% 78%;
-
-    --accent: 292 90% 56%;
-
-    --accent-foreground: 0 0% 100%;
-
-    --destructive: 350 92% 57%;
-
-    --destructive-foreground: 0 85% 97%;
-
-    --border: 220 55% 32%;
-
-    --input: 240 5% 18%;
-
-    --ring: 185 100% 50%;
-
-    --neon-glow: 185 100% 50%;
-
-    --neon-cyan: 185 100% 50%;
-
-    --neon-orange: 292 90% 56%;
-
-    --neon-red: 350 92% 57%;
-
-    --chart-1: 252 94% 85%;
-
-    --chart-2: 269 97% 85%;
-
-    --chart-3: 229 93% 81%;
-
-    --chart-4: 255 91% 76%;
-
-    --chart-5: 240 3% 46%;
-
-    --sidebar: 240 3% 15%;
-
-    --sidebar-foreground: 0 0% 98%;
-
-    --sidebar-primary: 255 91% 76%;
-
-    --sidebar-primary-foreground: 261 72% 22%;
-
-    --sidebar-accent: 270 95% 75%;
-
-    --sidebar-accent-foreground: 273 86% 20%;
-
-    --sidebar-border: 240 5% 33%;
-
-    --sidebar-ring: 255 91% 76%;
-
-    --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-
-    --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
-
-    --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-
-    --shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
-
-    --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
-
-    --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
-
-    --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
-
-    --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
-
   }
 }
 
