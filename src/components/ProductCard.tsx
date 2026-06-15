@@ -118,11 +118,11 @@ const ProductCard = ({ id, name, price, numericPrice, stock, description, catego
         }`}>
           {isBoost ? (
             <span className="flex items-center gap-1">
-              <Zap className="w-3 h-3" /> DỊCH VỤ
+              <Zap className="w-3 h-3" /> DV
             </span>
           ) : (
             <span className="flex items-center gap-1">
-              <User className="w-3 h-3" /> TÀI KHOẢN
+              <User className="w-3 h-3" /> ACC
             </span>
           )}
         </div>
