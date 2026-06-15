@@ -1,10 +1,9 @@
-import { Search, ShoppingCart, User, Gamepad2, ChevronDown, LogOut, Wallet, Shield, Phone, Mail, CreditCard, History as HistoryIcon, FileText, HelpCircle, Home, Package, Landmark, Smartphone, Menu, X } from "lucide-react";
+import { Search, ShoppingCart, User, Gamepad2, ChevronDown, LogOut, Wallet, Shield, Phone, Mail, CreditCard, History as HistoryIcon, FileText, HelpCircle, Home, Package, Landmark, Smartphone, Menu, X, TrendingUp, Gift, Users, Link, FileCheck, Headphones } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import ThemeToggle from "./ThemeToggle";
-import AnimatedLogo from "./AnimatedLogo";
 
 const Header = () => {
   const { user, signOut } = useAuth();
@@ -15,6 +14,7 @@ const Header = () => {
   const [userMenuOpen, setUserMenuOpen] = useState(false);
   const [topupOpen, setTopupOpen] = useState(false);
   const [historyOpen, setHistoryOpen] = useState(false);
+  const [moreOpen, setMoreOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isCTV, setIsCTV] = useState(false);
@@ -23,6 +23,7 @@ const Header = () => {
   const userMenuRef = useRef<HTMLDivElement>(null);
   const topupRef = useRef<HTMLDivElement>(null);
   const historyRef = useRef<HTMLDivElement>(null);
+  const moreRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     supabase.from("shop_settings").select("key,value").eq("key", "shop_logo_url").maybeSingle().then(({ data }) => {
@@ -48,6 +49,7 @@ const Header = () => {
       if (userMenuRef.current && !userMenuRef.current.contains(e.target as Node)) setUserMenuOpen(false);
       if (topupRef.current && !topupRef.current.contains(e.target as Node)) setTopupOpen(false);
       if (historyRef.current && !historyRef.current.contains(e.target as Node)) setHistoryOpen(false);
+      if (moreRef.current && !moreRef.current.contains(e.target as Node)) setMoreOpen(false);
     };
     document.addEventListener("mousedown", handleClick);
     return () => document.removeEventListener("mousedown", handleClick);
@@ -65,19 +67,30 @@ const Header = () => {
 
   return (
     <header className="bg-card border-b border-border sticky top-0 z-50">
-      {/* Top Bar - Giống ảnh RANDOMALL.NET */}
+      {/* Top Bar */}
       <div className="border-b border-border/50 bg-muted/30">
         <div className="container mx-auto px-4 py-1.5 flex items-center justify-between">
           <div className="flex items-center gap-4 text-xs text-muted-foreground">
-            <a href="https://discord.gg/ShopkietZ" target="_blank" rel="noopener" className="flex items-center gap-1 hover:text-primary transition-colors">
-              <Phone className="w-3 h-3" /> Discord: dsc.gg/ShopkietZ
-            </a>
-            <span className="hidden sm:flex items-center gap-1">
-              <Mail className="w-3 h-3" /> support@ShopkietZ.com
+            <div className="flex items-center gap-2">
+              <span>🌐 Select Language:</span>
+              <select className="bg-transparent border-none text-xs focus:outline-none">
+                <option>Vietnamese</option>
+                <option>English</option>
+              </select>
+            </div>
+            <div className="flex items-center gap-2">
+              <span>💰 Select Currency:</span>
+              <select className="bg-transparent border-none text-xs focus:outline-none">
+                <option>VND</option>
+                <option>USD</option>
+              </select>
+            </div>
+            <span className="hidden md:flex items-center gap-1">
+              <Phone className="w-3 h-3" /> Hỗ trợ 24/7
             </span>
           </div>
           <div className="flex items-center gap-3">
-            <span className="text-xs text-muted-foreground hidden md:inline">🌐 Select Language: Vietnamese</span>
+            <span className="text-xs text-primary font-semibold hidden md:block">Số Dư Đồ - Giảm: 0%</span>
             <ThemeToggle />
           </div>
         </div>
@@ -90,14 +103,19 @@ const Header = () => {
             {logoUrl && (
               <img src={logoUrl} alt="Logo" className="w-10 h-10 sm:w-12 sm:h-12 rounded-lg object-contain shrink-0" />
             )}
-            <AnimatedLogo />
+            <div className="flex flex-col">
+              <span className="font-display font-bold text-xl sm:text-2xl tracking-tight gradient-primary bg-clip-text text-transparent">
+                RANDOMALL.NET
+              </span>
+              <span className="text-[9px] text-muted-foreground hidden sm:block">SHOP RANDOM ĐA DẠNG GAME</span>
+            </div>
           </a>
 
           {/* Search Bar */}
           <form onSubmit={handleSearch} className="flex-1 max-w-xl hidden md:block">
             <div className="relative">
               <input type="text" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Tìm kiếm sản phẩm..."
+                placeholder="Tìm kiếm tài khoản game, sản phẩm..."
                 className="w-full bg-muted border border-border rounded-lg py-2.5 pl-4 pr-12 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary focus:neon-border transition-all" />
               <button type="submit" className="absolute right-1 top-1 bottom-1 px-3 gradient-primary rounded-md flex items-center justify-center hover:opacity-90 transition-opacity">
                 <Search className="w-4 h-4 text-primary-foreground" />
@@ -165,12 +183,13 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Navigation */}
-        <nav className={`mt-3 ${mobileMenuOpen ? "flex flex-col" : "hidden"} md:flex md:flex-row md:items-center gap-2 pb-1 relative z-40`}>
+        {/* Navigation - Giống ảnh RANDOMALL.NET */}
+        <nav className={`mt-3 ${mobileMenuOpen ? "flex flex-col" : "hidden"} md:flex md:flex-row md:items-center gap-1 pb-1 relative z-40 flex-wrap`}>
+          {/* Nút hiển thị số dư */}
           {user && (
             <button
-              onClick={() => navigate("/nap-the")}
-              className="flex items-center gap-2 px-3 py-2 rounded-lg border-2 border-primary bg-primary/5 hover:bg-primary/10 transition-colors shrink-0"
+              onClick={() => navigate("/nap-tien")}
+              className="flex items-center gap-2 px-3 py-2 rounded-lg border-2 border-primary bg-primary/5 hover:bg-primary/10 transition-colors shrink-0 mr-1"
             >
               <Wallet className="w-4 h-4 text-primary" />
               <span className="text-xs font-semibold text-primary whitespace-nowrap">
@@ -179,69 +198,95 @@ const Header = () => {
             </button>
           )}
 
+          {/* Trang Chủ */}
           <button onClick={() => navigate("/")} className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${currentPath === "/" ? "gradient-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground hover:bg-muted"}`}>
-            <Home className="w-4 h-4" /> Trang chủ
+            <Home className="w-4 h-4" /> Trang Chủ
           </button>
 
-          {/* Nạp tiền dropdown */}
+          {/* Mua Tài Khoản */}
+          <button onClick={() => navigate("/mua-tai-khoan")} className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${currentPath.startsWith("/mua-tai-khoan") ? "gradient-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground hover:bg-muted"}`}>
+            <ShoppingCart className="w-4 h-4" /> Mua Tài Khoản
+          </button>
+
+          {/* Lịch Sử Mua Hàng */}
+          <button onClick={() => navigate("/lich-su-mua")} className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${currentPath.startsWith("/lich-su-mua") ? "gradient-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground hover:bg-muted"}`}>
+            <HistoryIcon className="w-4 h-4" /> Lịch Sử Mua Hàng
+          </button>
+
+          {/* Bảng Xếp Hạng */}
+          <button onClick={() => navigate("/bang-xep-hang")} className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${currentPath.startsWith("/bang-xep-hang") ? "gradient-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground hover:bg-muted"}`}>
+            <TrendingUp className="w-4 h-4" /> Bảng Xếp Hạng
+          </button>
+
+          {/* Tiếp Thị Liên Kết */}
+          <button onClick={() => navigate("/tiep-thi-lien-ket")} className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${currentPath.startsWith("/tiep-thi-lien-ket") ? "gradient-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground hover:bg-muted"}`}>
+            <Users className="w-4 h-4" /> Tiếp Thị Liên Kết
+          </button>
+
+          {/* Mã Giảm Giá */}
+          <button onClick={() => navigate("/ma-giam-gia")} className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${currentPath.startsWith("/ma-giam-gia") ? "gradient-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground hover:bg-muted"}`}>
+            <Gift className="w-4 h-4" /> Mã Giảm Giá
+          </button>
+
+          {/* Nạp Tiền Dropdown */}
           <div className="relative" ref={topupRef}>
             <button onClick={() => setTopupOpen(!topupOpen)}
               className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${isTopupActive ? "gradient-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground hover:bg-muted"}`}>
-              <CreditCard className="w-4 h-4" /> Nạp tiền
+              <CreditCard className="w-4 h-4" /> Nạp Tiền
               <ChevronDown className={`w-3 h-3 transition-transform ${topupOpen ? "rotate-180" : ""}`} />
             </button>
             {topupOpen && (
-              <div className="absolute top-full left-0 mt-1 bg-card border border-border rounded-lg shadow-lg py-1 min-w-[200px] z-[100] animate-fade-in">
-                <div className="px-3 py-2 border-b border-border flex items-center gap-2 text-primary font-bold text-xs">
-                  <Landmark className="w-4 h-4" /> Chọn phương thức nạp
+              <div className="absolute top-full left-0 mt-1 bg-card border border-border rounded-lg shadow-lg py-1 min-w-[180px] z-[100] animate-fade-in">
+                <div className="px-3 py-2 border-b border-border text-primary font-bold text-xs">
+                  NẠP TIỀN
                 </div>
                 <button onClick={() => { navigate("/nap-ngan-hang"); setTopupOpen(false); }}
                   className="flex items-center gap-2 w-full px-4 py-2.5 text-sm text-foreground hover:bg-muted transition-colors">
-                  <Landmark className="w-4 h-4 text-primary" /> Ngân hàng
+                  <Landmark className="w-4 h-4 text-primary" /> Ngân Hàng
+                </button>
+                <button onClick={() => { navigate("/nap-hoa-don"); setTopupOpen(false); }}
+                  className="flex items-center gap-2 w-full px-4 py-2.5 text-sm text-foreground hover:bg-muted transition-colors">
+                  <FileText className="w-4 h-4 text-primary" /> Hoá Đơn
                 </button>
                 <button onClick={() => { navigate("/nap-the"); setTopupOpen(false); }}
                   className="flex items-center gap-2 w-full px-4 py-2.5 text-sm text-foreground hover:bg-muted transition-colors">
-                  <Smartphone className="w-4 h-4 text-accent" /> Thẻ cào
+                  <Smartphone className="w-4 h-4 text-accent" /> Nạp Thẻ
                 </button>
               </div>
             )}
           </div>
 
-          {/* Lịch sử dropdown */}
-          <div className="relative" ref={historyRef}>
-            <button onClick={() => setHistoryOpen(!historyOpen)}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${isHistoryActive ? "gradient-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground hover:bg-muted"}`}>
-              <HistoryIcon className="w-4 h-4" /> Lịch sử
-              <ChevronDown className={`w-3 h-3 transition-transform ${historyOpen ? "rotate-180" : ""}`} />
+          {/* KHÁC Dropdown */}
+          <div className="relative" ref={moreRef}>
+            <button onClick={() => setMoreOpen(!moreOpen)}
+              className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${moreOpen ? "gradient-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground hover:bg-muted"}`}>
+              <Package className="w-4 h-4" /> KHÁC
+              <ChevronDown className={`w-3 h-3 transition-transform ${moreOpen ? "rotate-180" : ""}`} />
             </button>
-            {historyOpen && (
-              <div className="absolute top-full left-0 mt-1 bg-card border border-border rounded-lg shadow-lg py-1 min-w-[220px] z-[100] animate-fade-in">
-                <button onClick={() => { navigate("/lich-su-mua"); setHistoryOpen(false); }}
+            {moreOpen && (
+              <div className="absolute top-full left-0 mt-1 bg-card border border-border rounded-lg shadow-lg py-1 min-w-[180px] z-[100] animate-fade-in">
+                <div className="px-3 py-2 border-b border-border text-primary font-bold text-xs">
+                  KHÁC
+                </div>
+                <button onClick={() => { navigate("/lien-he"); setMoreOpen(false); }}
                   className="flex items-center gap-2 w-full px-4 py-2.5 text-sm text-foreground hover:bg-muted transition-colors">
-                  <ShoppingCart className="w-4 h-4 text-primary" /> Lịch sử mua hàng
+                  <Phone className="w-4 h-4 text-primary" /> Liên Hệ
                 </button>
-                <button onClick={() => { navigate("/lich-su-nap"); setHistoryOpen(false); }}
+                <button onClick={() => { navigate("/chinh-sach-tao-website"); setMoreOpen(false); }}
                   className="flex items-center gap-2 w-full px-4 py-2.5 text-sm text-foreground hover:bg-muted transition-colors">
-                  <Wallet className="w-4 h-4 text-primary" /> Lịch sử nạp tiền
+                  <FileCheck className="w-4 h-4 text-primary" /> Chính Sách Tạo Website
                 </button>
-                <button onClick={() => { navigate("/bien-dong-so-du"); setHistoryOpen(false); }}
+                <button onClick={() => { navigate("/quy-dinh-nap-the"); setMoreOpen(false); }}
                   className="flex items-center gap-2 w-full px-4 py-2.5 text-sm text-foreground hover:bg-muted transition-colors">
-                  <FileText className="w-4 h-4 text-primary" /> Biến động số dư
+                  <FileText className="w-4 h-4 text-primary" /> Quy định nạp thẻ
                 </button>
-                <button onClick={() => { navigate("/lich-su-cay-thue"); setHistoryOpen(false); }}
+                <button onClick={() => { navigate("/faq"); setMoreOpen(false); }}
                   className="flex items-center gap-2 w-full px-4 py-2.5 text-sm text-foreground hover:bg-muted transition-colors">
-                  <Package className="w-4 h-4 text-accent" /> Lịch sử cày thuê
+                  <HelpCircle className="w-4 h-4 text-primary" /> FAQ
                 </button>
               </div>
             )}
           </div>
-
-          <button onClick={() => navigate("/quy-dinh-nap-the")} className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${currentPath.startsWith("/quy-dinh-nap-the") ? "gradient-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground hover:bg-muted"}`}>
-            <FileText className="w-4 h-4" /> Quy định nạp thẻ
-          </button>
-          <button onClick={() => navigate("/faq")} className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-medium whitespace-nowrap transition-all ${currentPath.startsWith("/faq") ? "gradient-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground hover:bg-muted"}`}>
-            <HelpCircle className="w-4 h-4" /> FAQ
-          </button>
         </nav>
       </div>
     </header>
