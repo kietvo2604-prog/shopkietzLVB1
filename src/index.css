@@ -83,11 +83,9 @@
     --popover: 0 0% 100%;
     --popover-foreground: 260 25% 10%;
 
-    /* Đổi sang Xanh lá Basic sáng */
     --primary: 142 70% 45%; 
     --primary-foreground: 0 0% 100%;
 
-    /* Màu chuyển sắc nhẹ (Xanh lá ngả đậm hơn tí) */
     --secondary: 145 65% 36%; 
     --secondary-foreground: 0 0% 100%;
 
@@ -104,7 +102,6 @@
     --input: 260 15% 85%;
     --ring: 142 70% 45%;
 
-    /* Biến Neon đổi sang Xanh lá phát quang nhẹ */
     --neon-glow: 142 70% 45%;
     --neon-cyan: 142 75% 48%;
     --neon-orange: 30 100% 55%;
@@ -118,9 +115,9 @@
     --sidebar-accent-foreground: 142 60% 15%;
     --sidebar-border: 260 15% 85%;
     --sidebar-ring: 142 70% 45%;
-}
+  }
 
-.dark {
+  .dark {
     --background: 240 6% 8%;
     --foreground: 0 0% 98%;
     --card: 240 5% 10%;
@@ -128,11 +125,9 @@
     --popover: 240 5% 12%;
     --popover-foreground: 0 0% 98%;
 
-    /* Đổi sang Xanh lá Neon Basic (Chủ đạo cho nút bấm/viền) */
     --primary: 142 85% 55%;
     --primary-foreground: 240 10% 6%;
 
-    /* Điểm chuyển sắc thứ hai (Xanh lục bảo dịu hơn một chút) */
     --secondary: 158 85% 45%;
     --secondary-foreground: 0 0% 98%;
 
@@ -145,14 +140,13 @@
     --destructive: 350 92% 57%;
     --destructive-foreground: 0 85% 97%;
     
-    --border: 142 40% 25%; /* Viền border ngả xanh lá tối để đồng bộ */
+    --border: 142 40% 25%; 
     --input: 240 5% 18%;
     --ring: 142 85% 55%;
 
-    /* Đồng bộ các hiệu ứng Neon phát sáng theo gốc Xanh lá */
     --neon-glow: 142 85% 55%;
     --neon-cyan: 142 85% 55%;
-    --neon-orange: 158 85% 45%; /* Tận dụng làm điểm gradient */
+    --neon-orange: 158 85% 45%; 
     --neon-red: 350 92% 57%;
 
     --chart-1: 142 85% 65%;
@@ -161,7 +155,6 @@
     --chart-4: 160 70% 40%;
     --chart-5: 240 3% 46%;
 
-    /* Giữ nguyên nền sidebar tối nhưng cập nhật màu chữ/vùng nhấn xanh lá */
     --sidebar: 240 3% 15%;
     --sidebar-foreground: 0 0% 98%;
     --sidebar-primary: 142 85% 55%;
@@ -179,7 +172,7 @@
     --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
     --xl-shadow: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
     --shadow-2xl: 0 1px 3px 0px hsl(0 0% 0% / 0.25);
-}
+  }
 }
 
 @layer base {
@@ -214,10 +207,24 @@
   .gradient-accent {
     background: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent)), hsl(var(--primary)));
   }
+  
+  /* --- ĐÃ ĐƯỢC CẬP NHẬT BIẾN SỐ GALAXY ĐỒNG BỘ THEO LIGHT/DARK MODE --- */
   .galaxy-button {
-    background: radial-gradient(circle at 18% 20%, hsl(0 0% 100% / 0.35), transparent 18%), linear-gradient(100deg, hsl(273 95% 58%), hsl(292 90% 56%) 48%, hsl(330 100% 76%) 100%);
-    box-shadow: 0 0 16px hsl(var(--accent) / 0.65), 0 0 34px hsl(var(--secondary) / 0.45), inset 0 0 16px hsl(0 0% 100% / 0.16);
+    background: radial-gradient(circle at 18% 20%, hsl(0 0% 100% / 0.35), transparent 25%), 
+                linear-gradient(100deg, hsl(var(--primary)), hsl(var(--secondary)) 48%, hsl(var(--accent)) 100%);
+    box-shadow: 0 0 18px hsl(var(--accent) / 0.65), 
+                0 0 38px hsl(var(--secondary) / 0.45), 
+                inset 0 0 16px hsl(0 0% 100% / 0.25);
+    transition: all 0.3s ease-in-out;
   }
+  .galaxy-button:hover {
+    box-shadow: 0 0 25px hsl(var(--accent) / 0.85), 
+                0 0 50px hsl(var(--secondary) / 0.65), 
+                inset 0 0 20px hsl(0 0% 100% / 0.4);
+    filter: brightness(1.1);
+  }
+  /* ----------------------------------------------------------------- */
+
   .neon-purple {
     box-shadow: 0 0 16px hsl(var(--accent) / 0.55), inset 0 0 14px hsl(var(--accent) / 0.12);
   }
@@ -227,7 +234,7 @@
   0% { transform: scale(1); }
   30% { transform: scale(0.9); }
   60% { transform: scale(1.1); }
-  100% { transform: scale(1); }
+  100% { scale(1); }
 }
 
 .logo-bounce {
