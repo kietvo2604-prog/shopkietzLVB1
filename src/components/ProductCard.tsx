@@ -118,7 +118,7 @@ const ProductCard = ({ id, name, price, numericPrice, stock, description, catego
         }`}>
           {isBoost ? (
             <span className="flex items-center gap-1">
-              <Zap className="w-3 h-3" /> GAMEPASS
+              <Zap className="w-3 h-3" /> DỊCH VỤ
             </span>
           ) : (
             <span className="flex items-center gap-1">
@@ -140,7 +140,7 @@ const ProductCard = ({ id, name, price, numericPrice, stock, description, catego
             </h3>
             {isBoost && (
               <p className="text-xs text-orange-400/70 flex items-center gap-1 mt-1">
-                <Clock className="w-3 h-3" /> DONE GAMEPASS 24/7
+                <Clock className="w-3 h-3" /> DONE ĐƠN 24/7
               </p>
             )}
           </div>
