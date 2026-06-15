@@ -1,4 +1,4 @@
-import { Search, ShoppingCart, User, Gamepad2, ChevronDown, LogOut, Wallet, Shield, Phone, Mail, CreditCard, History as HistoryIcon, FileText, HelpCircle, Home, Package, Landmark, Smartphone, Menu, X, Sparkles, TrendingUp, Gift, Star, Layers, Clock, Award, Zap } from "lucide-react";
+import { Search, ShoppingCart, User, Gamepad2, ChevronDown, LogOut, Wallet, Shield, Phone, Mail, CreditCard, History as HistoryIcon, FileText, HelpCircle, Home, Package, Landmark, Smartphone, Menu, X, Sparkles, TrendingUp, Gift, Star, Layers, Clock, Award, Zap, Users } from "lucide-react";
 import { useState, useRef, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
@@ -63,15 +63,16 @@ const Header = () => {
 
   const displayName = user?.user_metadata?.full_name || user?.email?.split("@")[0] || "User";
 
+  // Khai báo các biến kiểm tra active
   const isProductsActive = ["/mua-tai-khoan", "/random", "/game", "/products"].some(p => currentPath.startsWith(p));
   const isHistoryActive = ["/lich-su-nap", "/lich-su-mua", "/bien-dong-so-du", "/lich-su", "/lich-su-cay-thue"].some(p => currentPath.startsWith(p));
   const isTopupActive = ["/nap-tien", "/nap-the", "/nap-ngan-hang", "/nap"].some(p => currentPath.startsWith(p));
 
   const navItems = [
     { name: "Trang Chủ", path: "/", icon: Home },
-    { name: "Mua Tài Khoản", path: "/mua-tai-khoan", icon: ShoppingCart, dropdown: true },
-    { name: "Nạp Tiền", path: "/nap-tien", icon: Wallet, dropdown: true },
-    { name: "Lịch Sử", path: "/lich-su", icon: HistoryIcon, dropdown: true },
+    { name: "Mua Tài Khoản", path: "/mua-tai-khoan", icon: ShoppingCart },
+    { name: "Nạp Tiền", path: "/nap-tien", icon: Wallet },
+    { name: "Lịch Sử", path: "/lich-su", icon: HistoryIcon },
     { name: "Bảng Xếp Hạng", path: "/bang-xep-hang", icon: TrendingUp },
     { name: "Tiếp Thị Liên Kết", path: "/affiliate", icon: Users },
     { name: "Mã Giảm Giá", path: "/ma-giam-gia", icon: Gift },
@@ -79,7 +80,7 @@ const Header = () => {
 
   return (
     <>
-      {/* Top Bar - UY TÍN + SỐ 1 - Style như RANDOMALL.NET */}
+      {/* Top Bar */}
       <div className="bg-gradient-to-r from-primary via-secondary to-accent text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-black/10"></div>
         <div className="container mx-auto px-4 py-2.5 relative z-10">
@@ -166,14 +167,6 @@ const Header = () => {
 
             {/* Right Actions */}
             <div className="flex items-center gap-3">
-              {/* Support Hotline */}
-              <div className="hidden lg:flex items-center gap-3 px-3 py-2 bg-primary/10 rounded-xl border border-primary/20">
-                <div className="flex flex-col">
-                  <p className="text-[10px] text-muted-foreground">HỖ TRỢ 24/7</p>
-                  <p className="text-xs font-bold text-primary">SUPPORT ALL TIME</p>
-                </div>
-              </div>
-
               <ThemeToggle />
 
               {user ? (
@@ -241,10 +234,9 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Navigation Bar - Style như RANDOMALL.NET */}
+          {/* Navigation Bar */}
           <nav className={`mt-4 ${mobileMenuOpen ? "flex flex-col" : "hidden"} lg:flex lg:flex-row lg:items-center lg:justify-between gap-1 pb-1 z-40`}>
             <div className="flex flex-col lg:flex-row lg:items-center gap-1">
-              {/* Nút hiển thị số dư */}
               {user && (
                 <button
                   onClick={() => navigate("/nap-tien")}
@@ -257,22 +249,28 @@ const Header = () => {
                 </button>
               )}
 
-              {navItems.map((item) => (
-                <button
-                  key={item.path}
-                  onClick={() => navigate(item.path)}
-                  className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium whitespace-nowrap transition-all ${
-                    currentPath === item.path || (item.dropdown && (isProductsActive || isTopupActive || isHistoryActive))
-                      ? "gradient-primary text-primary-foreground shadow-md"
-                      : "text-muted-foreground hover:text-foreground hover:bg-muted"
-                  }`}
-                >
-                  <item.icon className="w-4 h-4" />
-                  {item.name}
-                </button>
-              ))}
+              {navItems.map((item) => {
+                const isActive = currentPath === item.path || 
+                  (item.name === "Mua Tài Khoản" && isProductsActive) ||
+                  (item.name === "Nạp Tiền" && isTopupActive) ||
+                  (item.name === "Lịch Sử" && isHistoryActive);
+                
+                return (
+                  <button
+                    key={item.path}
+                    onClick={() => navigate(item.path)}
+                    className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium whitespace-nowrap transition-all ${
+                      isActive
+                        ? "gradient-primary text-primary-foreground shadow-md"
+                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    }`}
+                  >
+                    <item.icon className="w-4 h-4" />
+                    {item.name}
+                  </button>
+                );
+              })}
 
-              {/* Nút Quy định và FAQ */}
               <button
                 onClick={() => navigate("/quy-dinh-nap-the")}
                 className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
@@ -291,7 +289,6 @@ const Header = () => {
               </button>
             </div>
 
-            {/* Contact info trên nav */}
             <div className="flex items-center gap-3 text-xs text-muted-foreground border-t lg:border-t-0 pt-3 lg:pt-0 mt-2 lg:mt-0">
               <a href="https://discord.gg/ShopkietZ" target="_blank" rel="noopener" className="flex items-center gap-1 hover:text-primary transition-colors">
                 <Phone className="w-3 h-3" /> Discord: dsc.gg/ShopkietZ
