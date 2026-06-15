@@ -8,7 +8,9 @@
 @tailwind utilities;
 
 @layer base {
-  /* --- MẶC ĐỊNH LÀ DARK MODE --- */
+  /* ==========================================================================
+     MẶC ĐỊNH LÀ DARK MODE (:root)
+     ========================================================================== */
   :root {
     --background: 240 6% 8%;
     --foreground: 0 0% 98%;
@@ -16,44 +18,54 @@
     --card-foreground: 0 0% 98%;
     --popover: 240 5% 12%;
     --popover-foreground: 0 0% 98%;
-    --primary: 185 100% 50%;
+
+    /* Xanh lá Neon Chủ đạo */
+    --primary: 142 85% 55%;
     --primary-foreground: 240 10% 6%;
-    --secondary: 273 95% 58%;
+
+    /* Xanh lục bảo dịu */
+    --secondary: 158 85% 45%;
     --secondary-foreground: 0 0% 98%;
+
     --muted: 240 5% 14%;
     --muted-foreground: 220 14% 78%;
-    --accent: 292 90% 56%;
+    
+    --accent: 142 80% 60%;
     --accent-foreground: 0 0% 100%;
+
     --destructive: 350 92% 57%;
     --destructive-foreground: 0 85% 97%;
-    --border: 220 55% 32%;
-    --input: 240 5% 18%;
-    --ring: 185 100% 50%;
     
+    --border: 142 40% 25%; 
+    --input: 240 5% 18%;
+    --ring: 142 85% 55%;
+
+    /* Đồng bộ hiệu ứng phát sáng Neon hệ Xanh lá */
+    --neon-glow: 142 85% 55%;
+    --neon-cyan: 142 85% 55%;
+    --neon-orange: 158 85% 45%; 
+    --neon-red: 350 92% 57%;
+
+    --chart-1: 142 85% 65%;
+    --chart-2: 158 85% 55%;
+    --chart-3: 135 60% 50%;
+    --chart-4: 160 70% 40%;
+    --chart-5: 240 3% 46%;
+
+    /* Cấu hình Sidebar tối và điểm nhấn xanh */
+    --sidebar: 240 3% 15%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 142 85% 55%;
+    --sidebar-primary-foreground: 240 10% 6%;
+    --sidebar-accent: 142 30% 20%;
+    --sidebar-accent-foreground: 142 85% 80%;
+    --sidebar-border: 240 5% 23%;
+    --sidebar-ring: 142 85% 55%;
+
+    /* Thuộc tính chung Layout & Shadow */
     --radius: 0.5rem;
     --tracking-normal: 0em;
     --spacing: 0.25rem;
-
-    --neon-glow: 185 100% 50%;
-    --neon-cyan: 185 100% 50%;
-    --neon-orange: 292 90% 56%;
-    --neon-red: 350 92% 57%;
-    
-    --chart-1: 252 94% 85%;
-    --chart-2: 269 97% 85%;
-    --chart-3: 229 93% 81%;
-    --chart-4: 255 91% 76%;
-    --chart-5: 240 3% 46%;
-    
-    --sidebar: 240 3% 15%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 255 91% 76%;
-    --sidebar-primary-foreground: 261 72% 22%;
-    --sidebar-accent: 270 95% 75%;
-    --sidebar-accent-foreground: 273 86% 20%;
-    --sidebar-border: 240 5% 33%;
-    --sidebar-ring: 255 91% 76%;
-    
     --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
     --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
     --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
@@ -68,49 +80,54 @@
     --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
   }
 
-  /* --- CHUYỂN SANG LIGHT MODE KHI CÓ CLASS .light --- */
+  /* ==========================================================================
+     CHẾ ĐỘ LIGHT MODE (Kích hoạt khi có class .light)
+     ========================================================================== */
   .light {
-    --background: 210 20% 95%;
-    --foreground: 220 25% 12%;
+    --background: 250 20% 98%;
+    --foreground: 260 25% 10%;
 
     --card: 0 0% 100%;
-    --card-foreground: 220 25% 12%;
+    --card-foreground: 260 25% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 220 25% 12%;
+    --popover-foreground: 260 25% 10%;
 
-    --primary: 145 90% 38%;
+    /* Xanh lá Basic sáng */
+    --primary: 142 70% 45%; 
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 185 90% 38%;
+    /* Xanh lá ngả đậm */
+    --secondary: 145 65% 36%; 
     --secondary-foreground: 0 0% 100%;
 
-    --muted: 210 15% 88%;
-    --muted-foreground: 220 15% 35%;
+    --muted: 260 15% 92%;
+    --muted-foreground: 260 20% 40%;
 
-    --accent: 30 100% 50%;
+    --accent: 142 75% 48%;
     --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 85% 50%;
+    --destructive: 0 85% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 210 15% 82%;
-    --input: 210 15% 82%;
-    --ring: 145 90% 38%;
+    --border: 260 15% 85%;
+    --input: 260 15% 85%;
+    --ring: 142 70% 45%;
 
-    --neon-glow: 145 90% 38%;
-    --neon-cyan: 185 90% 38%;
-    --neon-orange: 30 100% 50%;
-    --neon-red: 0 90% 50%;
+    /* Biến phát quang nhẹ cho Light Mode */
+    --neon-glow: 142 70% 45%;
+    --neon-cyan: 142 75% 48%;
+    --neon-orange: 30 100% 55%;
+    --neon-red: 0 90% 55%;
 
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 220 25% 12%;
-    --sidebar-primary: 145 90% 38%;
+    --sidebar-foreground: 260 25% 10%;
+    --sidebar-primary: 142 70% 45%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 210 15% 88%;
-    --sidebar-accent-foreground: 220 25% 12%;
-    --sidebar-border: 210 15% 82%;
-    --sidebar-ring: 145 90% 38%;
+    --sidebar-accent: 142 15% 95%;
+    --sidebar-accent-foreground: 142 60% 15%;
+    --sidebar-border: 260 15% 85%;
+    --sidebar-ring: 142 70% 45%;
   }
 }
 
@@ -119,7 +136,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans;
+    @apply bg-background text-foreground;
     font-family: 'Space Grotesk', system-ui, sans-serif;
   }
 }
