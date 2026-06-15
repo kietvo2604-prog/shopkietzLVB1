@@ -74,102 +74,85 @@
   }
 
   .light {
-    --background: 120 20% 98%;
-    --foreground: 120 40% 12%;
+    --background: 250 20% 98%;
+    --foreground: 260 25% 10%;
 
-    --card: 120 20% 100%;
-    --card-foreground: 120 40% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 260 25% 10%;
 
-    --popover: 120 20% 100%;
-    --popover-foreground: 120 40% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 260 25% 10%;
 
-    --primary: 120 70% 40%;
+    --primary: 260 85% 65%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 120 50% 88%;
-    --secondary-foreground: 120 70% 30%;
+    --secondary: 280 75% 65%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 120 15% 94%;
-    --muted-foreground: 120 20% 40%;
+    --muted: 260 15% 92%;
+    --muted-foreground: 260 20% 40%;
 
-    --accent: 120 65% 45%;
+    --accent: 180 80% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 85% 55%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 120 20% 88%;
-    --input: 120 20% 88%;
-    --ring: 120 70% 40%;
+    --border: 260 15% 85%;
+    --input: 260 15% 85%;
+    --ring: 260 85% 65%;
 
-    --neon-glow: 120 70% 40%;
-    --neon-cyan: 120 60% 42%;
+    --neon-glow: 260 85% 65%;
+    --neon-cyan: 180 80% 50%;
     --neon-orange: 30 100% 55%;
     --neon-red: 0 90% 55%;
 
-    --sidebar-background: 120 20% 100%;
-    --sidebar-foreground: 120 40% 12%;
-    --sidebar-primary: 120 70% 40%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 260 25% 10%;
+    --sidebar-primary: 260 85% 65%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 120 25% 92%;
-    --sidebar-accent-foreground: 120 40% 12%;
-    --sidebar-border: 120 20% 88%;
-    --sidebar-ring: 120 70% 40%;
-    --chart-1: 120 70% 45%;
-    --chart-2: 120 60% 55%;
-    --chart-3: 120 50% 65%;
-    --chart-4: 120 70% 35%;
-    --chart-5: 120 40% 75%;
-    --sidebar: 120 20% 98%;
-  }
-  
+    --sidebar-accent: 260 15% 92%;
+    --sidebar-accent-foreground: 260 25% 10%;
+    --sidebar-border: 260 15% 85%;
+    --sidebar-ring: 260 85% 65%;
+}
   .dark {
-    --background: 120 30% 6%;
-    --foreground: 120 20% 92%;
-
-    --card: 120 25% 8%;
-    --card-foreground: 120 20% 92%;
-
-    --popover: 120 25% 10%;
-    --popover-foreground: 120 20% 92%;
-
-    --primary: 120 65% 45%;
-    --primary-foreground: 0 0% 100%;
-
-    --secondary: 120 35% 20%;
-    --secondary-foreground: 120 20% 92%;
-
-    --muted: 120 20% 14%;
-    --muted-foreground: 120 15% 70%;
-
-    --accent: 120 55% 42%;
+    --background: 240 6% 8%;
+    --foreground: 0 0% 98%;
+    --card: 240 5% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 5% 12%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 185 100% 50%;
+    --primary-foreground: 240 10% 6%;
+    --secondary: 273 95% 58%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 5% 14%;
+    --muted-foreground: 220 14% 78%;
+    --accent: 292 90% 56%;
     --accent-foreground: 0 0% 100%;
-
     --destructive: 350 92% 57%;
     --destructive-foreground: 0 85% 97%;
-
-    --border: 120 30% 20%;
-    --input: 120 25% 16%;
-    --ring: 120 65% 45%;
-
-    --neon-glow: 120 65% 45%;
-    --neon-cyan: 120 55% 42%;
-    --neon-orange: 30 100% 50%;
+    --border: 220 55% 32%;
+    --input: 240 5% 18%;
+    --ring: 185 100% 50%;
+    --neon-glow: 185 100% 50%;
+    --neon-cyan: 185 100% 50%;
+    --neon-orange: 292 90% 56%;
     --neon-red: 350 92% 57%;
-
-    --chart-1: 120 65% 55%;
-    --chart-2: 120 55% 65%;
-    --chart-3: 120 45% 75%;
-    --chart-4: 120 65% 45%;
-    --chart-5: 120 35% 85%;
-    --sidebar: 120 25% 12%;
-    --sidebar-foreground: 120 20% 92%;
-    --sidebar-primary: 120 65% 45%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 120 35% 20%;
-    --sidebar-accent-foreground: 120 20% 92%;
-    --sidebar-border: 120 30% 20%;
-    --sidebar-ring: 120 65% 45%;
+    --chart-1: 252 94% 85%;
+    --chart-2: 269 97% 85%;
+    --chart-3: 229 93% 81%;
+    --chart-4: 255 91% 76%;
+    --chart-5: 240 3% 46%;
+    --sidebar: 240 3% 15%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 255 91% 76%;
+    --sidebar-primary-foreground: 261 72% 22%;
+    --sidebar-accent: 270 95% 75%;
+    --sidebar-accent-foreground: 273 86% 20%;
+    --sidebar-border: 240 5% 33%;
+    --sidebar-ring: 255 91% 76%;
     --shadow-2xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
     --shadow-xs: 0 1px 3px 0px hsl(0 0% 0% / 0.05);
     --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
@@ -214,7 +197,7 @@
     background: linear-gradient(135deg, hsl(var(--secondary)), hsl(var(--accent)), hsl(var(--primary)));
   }
   .galaxy-button {
-    background: radial-gradient(circle at 18% 20%, hsl(0 0% 100% / 0.35), transparent 18%), linear-gradient(100deg, hsl(120 65% 40%), hsl(120 60% 45%) 48%, hsl(120 55% 50%) 100%);
+    background: radial-gradient(circle at 18% 20%, hsl(0 0% 100% / 0.35), transparent 18%), linear-gradient(100deg, hsl(273 95% 58%), hsl(292 90% 56%) 48%, hsl(330 100% 76%) 100%);
     box-shadow: 0 0 16px hsl(var(--accent) / 0.65), 0 0 34px hsl(var(--secondary) / 0.45), inset 0 0 16px hsl(0 0% 100% / 0.16);
   }
   .neon-purple {
